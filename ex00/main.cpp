@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:35:11 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 16:53:06 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/07/29 17:01:40 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,15 @@ int main(void)
 	delete j;
 
 	const WrongAnimal* wrongMeta = new WrongAnimal(); 
-	const WrongAnimal* wrongI = new WrongCat();
-	std::cout << wrongI->getType() << " " << std::endl; 
-	wrongI->makeSound(); //will output the WrongAnimal sound! 
+	const WrongAnimal* wrongCat1 = new WrongCat();
+	const WrongCat* wrongCat2 = new WrongCat();
+	std::cout << wrongCat1->getType() << " " << std::endl; 
+	std::cout << wrongCat2->getType() << " " << std::endl; 
+	wrongCat1->makeSound(); //will output the WrongAnimal sound! 
+	wrongCat2->makeSound(); //will output the WrongCat sound! 
 	wrongMeta->makeSound();
 
 	delete wrongMeta;
-	delete wrongI;
+	delete wrongCat1;
+	delete wrongCat2;
 }

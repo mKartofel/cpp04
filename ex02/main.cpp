@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 18:46:46 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/30 10:35:38 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/07/30 12:28:42 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,34 @@ int main(void)
 {
 	Cat cat1();
 	Dog dog1();
-	Animal *cat2 = new Cat;
-	Animal *dog2 = new Dog;
-	(void)cat2;
-	(void)dog2;
-	// Animal animal; //impossible to instantiate Abstract Class
-
+	Animal *cat2;
+	Animal *dog2;
+	try
+	{
+		cat2 = new Cat;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
+	try
+	{
+		dog2 = new Dog;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		delete cat2;
+		return 1;
+	}
+	
 	delete cat2;
 	delete dog2;
+	
+	// Animal animal; //impossible to instantiate Abstract Class
+
+
 
 	return 0;
 }

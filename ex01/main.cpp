@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 18:46:46 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/30 08:59:28 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/07/30 12:25:21 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,27 @@ int main(void)
 {
 	//subject tests
 	std::cout << "subject tests :" << std::endl;
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal* j;
+	const Animal* i;
+	try
+	{
+		j = new Dog();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
+	try
+	{
+		i = new Cat();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		delete j;
+		return 1;
+	}
 	delete j;//should not create a leak
 	delete i;
 
@@ -28,14 +47,25 @@ int main(void)
 	//array tests
 	std::cout << std::endl << "array tests :" << std::endl;
 	Animal *tab[TAB_SIZE];
-	for (int i = 0; i < TAB_SIZE; i++)
+	int k;
+	try
 	{
-		if (i % 2 == 0)
-			tab[i] = new Cat();
-		else
-			tab[i] = new Dog();
+		for (k = 0; k < TAB_SIZE; k++)
+		{
+			if (k % 2 == 0)
+				tab[k] = new Cat();
+			else
+				tab[k] = new Dog();
+		}
 	}
-
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+		for (int j = 0; j < k; j++)
+			delete tab[j];
+		return 1;
+	}
+	
 	for (int i = 0; i < TAB_SIZE; i++)
 		delete tab[i];
 

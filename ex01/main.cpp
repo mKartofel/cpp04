@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 18:46:46 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 19:25:38 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/07/30 08:59:28 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,14 @@ int main(void)
 
 	std::cout << "cat1 first idea value : " << cat1.getIdea(0) << std::endl;
 	std::cout << "cat2 first idea value : " << cat2.getIdea(0) << std::endl;
+
+	Cat cat3;
+	cat3.setIdea(0, "cat3 idea still here");
+	{ //new scope
+		Cat cat4 = cat3;
+		Cat cat5(cat3);
+	} //end of scope
+	std::cout << "cat3 first idea value : " << cat3.getIdea(0) << std::endl;
 
 	return 0;
 }

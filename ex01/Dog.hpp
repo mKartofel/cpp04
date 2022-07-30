@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:31:15 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 19:21:42 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/07/30 09:10:24 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Dog();
 	Dog(Dog const &d);
 	Dog &operator=(Dog const &d);
-	~Dog();
+	virtual ~Dog();
 
 	void makeSound() const;
 	void setIdea(int i, std::string s);

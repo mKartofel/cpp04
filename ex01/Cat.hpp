@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:20:25 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 19:19:31 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/07/30 09:10:19 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	Cat();
 	Cat(Cat const &c);
 	Cat &operator=(Cat const &c);
-	~Cat();
+	virtual ~Cat();
 
 	void makeSound() const;
 	void setIdea(int i, std::string s);

@@ -6,48 +6,38 @@
 #    By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/29 15:56:05 by vfiszbin          #+#    #+#              #
-#    Updated: 2022/07/29 16:46:37 by vfiszbin         ###   ########.fr        #
+#    Updated: 2022/07/30 10:13:31 by vfiszbin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+CXX = c++
+
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+
 NAME = ex00
 
-SRCS =	main.cpp\
-		Animal.cpp\
-		WrongAnimal.cpp\
-		Cat.cpp\
-		WrongCat.cpp\
-		Dog.cpp\
+SOURCES := $(wildcard *.cpp)
+OBJECTS := $(patsubst %.cpp,%.o,$(SOURCES))
+DEPENDS := $(patsubst %.cpp,%.d,$(SOURCES))
+ 
+OBJS = $(SRCS:.cpp=.o)
 
-OBJS = ${SRCS:.cpp=.o}
+all : $(NAME)
 
-INCLUDES =	Animal.hpp\
-			WrongAnimal.hpp\
-			Cat.hpp\
-			WrongCat.hpp\
-			Dog.hpp\
+$(NAME) : $(OBJECTS)
+	$(CXX) $(CXXFLAGS) $^ -o $@ 
 
-CC = c++
+%.o : %.cpp %.hpp Makefile
+	$(CXX) $(CXXFLAGS) -MMD -MP -c $< -o $@
 
-RM = rm -f
+-include $(DEPENDS)
 
-FLAGS = -Wall -Wextra -Werror -std=c++98
+clean :
+	$(RM) $(OBJECTS) $(DEPENDS)
 
-.cpp.o:
-	${CC} ${FLAGS} -c $ $< -o ${<:.cpp=.o}
+fclean : clean
+	$(RM) $(NAME)
 
-all: ${NAME}
+re : fclean all
 
-${NAME} : ${INCLUDES} ${OBJS}
-	
-	${CC} ${FLAGS} ${OBJS} -o ${NAME}
-
-clean:
-	${RM} *.o
-
-fclean: clean
-	${RM} ${NAME}
-
-re: fclean all
-
-.PHONY: all clean fclean re
+.PHONY : all debut clean fclean re

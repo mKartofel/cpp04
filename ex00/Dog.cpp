@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:32:43 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 16:33:59 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:09:35 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ Dog::Dog() : Animal("Dog")
 
 Dog &Dog::operator=(Dog const &d)
 {
-	_type = d._type;
+	if (this != &d)
+		_type = d._type;
 	return *this;
 }
 

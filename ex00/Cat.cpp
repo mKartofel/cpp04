@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:27:46 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 16:34:15 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:09:23 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ Cat::Cat() : Animal("Cat")
 
 Cat &Cat::operator=(Cat const &c)
 {
-	_type = c._type;
+	if (this != &c)
+		_type = c._type;
 	return *this;
 }
 

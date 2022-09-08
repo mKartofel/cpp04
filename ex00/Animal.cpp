@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 15:57:24 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 16:38:39 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:09:10 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ Animal::Animal(std::string type) : _type(type)
 
 Animal &Animal::operator=(Animal const &a)
 {
-	_type = a._type;
+	if (this != &a)
+		_type = a._type;
 	return *this;
 }
 

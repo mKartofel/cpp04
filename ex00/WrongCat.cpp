@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:45:17 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 16:46:05 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:10:12 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ WrongCat::WrongCat() : WrongAnimal("WrongCat")
 
 WrongCat &WrongCat::operator=(WrongCat const &c)
 {
-	_type = c._type;
+	if (this != &c)
+		_type = c._type;
 	return *this;
 }
 

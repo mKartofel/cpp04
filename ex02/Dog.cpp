@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:32:43 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 19:21:56 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:27:06 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ Dog::Dog() : Animal("Dog")
 
 Dog &Dog::operator=(Dog const &d)
 {
-	_type = d._type;
-	*_brain = *(d._brain); //dereference to make deep copy
+	if (this != &d)
+	{
+		_type = d._type;
+		*_brain = *(d._brain); //dereference to make deep copy
+	}
 	return *this;
 }
 

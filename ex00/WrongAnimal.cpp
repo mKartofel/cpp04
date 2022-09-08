@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:43:32 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 16:44:08 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:09:58 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ WrongAnimal::WrongAnimal(std::string type) : _type(type)
 
 WrongAnimal &WrongAnimal::operator=(WrongAnimal const &a)
 {
-	_type = a._type;
+	if (this != &a)
+		_type = a._type;
 	return *this;
 }
 

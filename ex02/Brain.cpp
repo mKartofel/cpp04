@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 17:51:05 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 19:21:21 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:26:16 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,11 @@ Brain::Brain()
 Brain & Brain::operator=(Brain const &b)
 {
 	std::cout << "Brain copy assignment operator called" << std::endl;
-	for (int i = 0; i < 100; i++)
-		_ideas[i] = b._ideas[i];
+	if (this != &b)
+	{
+		for (int i = 0; i < 100; i++)
+			_ideas[i] = b._ideas[i];
+	}
 	return *this;
 }
 

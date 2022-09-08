@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 16:27:46 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/29 19:21:16 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:26:49 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ Cat::Cat() : Animal("Cat")
 
 Cat &Cat::operator=(Cat const &c)
 {
-	_type = c._type;
-	*_brain = *(c._brain); //dereference to make deep copy
+	if (this != &c)
+	{
+		_type = c._type;
+		*_brain = *(c._brain); //dereference to make deep copy
+	}
 	return *this;
 }
 

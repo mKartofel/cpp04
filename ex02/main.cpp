@@ -6,7 +6,7 @@
 /*   By: vfiszbin <vfiszbin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 18:46:46 by vfiszbin          #+#    #+#             */
-/*   Updated: 2022/07/30 12:28:42 by vfiszbin         ###   ########.fr       */
+/*   Updated: 2022/09/08 17:48:07 by vfiszbin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int main(void)
 {
-	Cat cat1();
-	Dog dog1();
+	Cat cat1;
+	Dog dog1;
 	Animal *cat2;
 	Animal *dog2;
 	try
